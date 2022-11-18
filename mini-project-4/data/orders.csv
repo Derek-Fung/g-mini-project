@@ -1,0 +1,8 @@
+customer_name,customer_address,customer_phone,items,courier,status
+John,"26 Sedgeford Rd, Manchester M40 8QL",07898873344,"1, 2, 3, 4, 5, 6",0,Delivered
+Mary,"1 Douglas Grn, Salford, Manchester M6 6ES",07152521727,"2, 3, 3, 4, 1, 0",0,Preparing
+Sam,"71 Blackfriars Rd, Salford, Manchester M3 7GQ",07411235668,"5, 4, 0, 2, 1, 5",1,Preparing
+Martin,"23 Rose Garden Road, Manchester M1 8DL",07712377859,"3, 3, 2, 4, 5",2,Out-for-Delivery
+Harry,"5 Sandy Road, Manchester M4 4RF",07456231567,"4, 1",2,Out-for-Delivery
+Susan,"71 Memory Sweet, Manchester M2 8HG",07512489653,"4, 1",0,Out-for-Delivery
+Isabella,"121 Happy Day Road, Manchester M3 9MN",07451236859,"1, 3, 4, 3",3,Awaiting Pickup
