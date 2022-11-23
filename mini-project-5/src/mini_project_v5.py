@@ -125,7 +125,7 @@ data[orders] = []
 tb = {}
 tb[products] = [pid, product_name, product_price, product_stock]
 tb[couriers] = [cid, courier_name, courier_phone]
-tb[orders] = [oid, customer_name, customer_address, customer_phone, products_list, order_total, courier_id, o_status_id, unixtime, date]
+tb[orders] = [oid, customer_name, customer_address, customer_phone, products_list, order_total, courier_id, o_status_id, date]
 tb[orders_status] = [osid, o_status]
 tb[orders_to_pdts] = [opid, oid, pid, product_name, product_price, unixtime, date]
 
