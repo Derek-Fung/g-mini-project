@@ -445,7 +445,13 @@ def dateTimeToUnix(dateTime = None) -> int:
         unixtime = 0
     return unixtime
 
+def get_screen_size() -> object:
+    try:
+        screen_size = os.get_terminal_size()
+    except:
+        screen_size = shutil.get_terminal_size()
 
+    return screen_size
     
 def init_file_data(file_name, default_data): # Function initilizes data, use default data if stroage data not exist
     helper = rw[hlp]() # helper object created from Class rw[hlp]
@@ -456,7 +462,9 @@ def input_filter(args):
         
 def input_option(menu_name, main_input):    # Function handles user input on menu
     if main_input != 0:
-        breadcrumb = f"{main} \u25B6 {menu_name}"
+        # breadcrumb = f"{main} \u25B6 {menu_name}"
+        breadcrumb = f"{main} > {menu_name}" # use > instead of \u25B6 for compatible of old system.
+        
     else:
         breadcrumb = f"{menu_name}"
     while True:
@@ -618,7 +626,7 @@ def list_items(menu_name, option_value, where_clause, myinput, go_id, dict_key =
                 for item in loop_list:
                     mx[item] = len(max(list(x for x in show[item]), key=len)) + 1 #add 1 spaceing for easing feeling.
 
-                screen_size = shutil.get_terminal_size()
+                screen_size = get_screen_size()
                 p("")     
                 for x in range(len(rows)):
                     temp = ''
@@ -671,7 +679,7 @@ def list_options(menu_name, option_value):  # Function prints options listing
     cc_length_factor = 0
     
     if len(temp_data) > 0:
-        screen_size = shutil.get_terminal_size()
+        screen_size = get_screen_size()
         temp=[]
         for item in temp_data:
             temp.append(str(item))  # Convert the list elements to string for display purpose.
@@ -752,7 +760,7 @@ def print_menu(menu_name, option_value): # Function prints menu
         else:
             menu_list[x] = (menu_list[x] + f'{op_list[-1]}')
 
-    screen_size = shutil.get_terminal_size()
+    screen_size = get_screen_size()
     for x in range(len(menu_list)):
         spacer = cc_count[x] * (cc_length)
         p(f'{menu_list[x]: ^{screen_size.columns + spacer}}')
