@@ -1233,6 +1233,8 @@ if __name__ == "__main__":
                                                         pdt_list.append(rows[0])   
                                                     products_tuple =[ (x[1], y[1], z[1]) for x, y, z in (dic.items() for dic in pdt_list)]
                                                     products_string = str(products_tuple)
+                                                    products_string = products_string.replace("'", r"\'")
+                                                    products_string = products_string.replace('"', r'\"')                                                    
                                                     cursor.execute(f'UPDATE orders SET products_list = "{products_string}",  order_total = {total_price} WHERE oid = {index_input}') 
                                                     mydb.commit()
                                                     cursor.execute(f'DELETE FROM orders_to_pdts WHERE oid = {index_input}')

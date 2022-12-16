@@ -359,7 +359,7 @@ class Container:
     '          ',  # last elements op_list[-1] used for default padding
     ]
 
-    months_name = ['March', 'April', 'May', 'June', 'July', 'Oct', 'Sept', 'Dec', 'Nov']
+    months_name = ['March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov']
 
     months_inv = [('2022-03-01', '2022-03-31'), ('2022-04-01', '2022-04-30'), ('2022-05-01', '2022-05-31'), ('2022-06-01', '2022-06-30'), ('2022-07-01', '2022-07-31'), ('2022-08-01', '2022-08-31'), ('2022-09-01', '2022-09-30'), ('2022-10-01', '2022-10-31'), ('2022-11-01', '2022-11-30')]
 
@@ -1215,6 +1215,8 @@ class MethodClass():
                                             pdt_list.append(rows[0])   
                                         products_tuple =[ (x[1], y[1], z[1]) for x, y, z in (dic.items() for dic in pdt_list)]
                                         products_string = str(products_tuple)
+                                        products_string = products_string.replace("'", r"\'")
+                                        products_string = products_string.replace('"', r'\"')                                        
                                         cursor.execute(f'UPDATE orders SET products_list = "{products_string}",  order_total = {total_price} WHERE oid = {index_input}') 
                                         mydb.commit()
                                         cursor.execute(f'DELETE FROM orders_to_pdts WHERE oid = {index_input}')
